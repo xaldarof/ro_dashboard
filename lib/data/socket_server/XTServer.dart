@@ -8,8 +8,7 @@ import 'package:app_ro_dashboard/log.dart';
 
 class XSServer {
   static ServerSocket? _server;
-  static final StreamController<BaseDTO> _streamController =
-      StreamController();
+  static final StreamController<BaseDTO> _streamController = StreamController();
   static final List<Socket> _clients = [];
 
   Future<ServerSocket>? close() {
@@ -26,8 +25,7 @@ class XSServer {
 
   static void sendAll(String event, String message) {
     for (var element in _clients) {
-      element.write(
-          jsonEncode(BaseDTO(event: event, body: message).toMap()));
+      element.write(jsonEncode(BaseDTO(event: event, body: message).toMap()));
     }
   }
 
